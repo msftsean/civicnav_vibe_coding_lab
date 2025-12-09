@@ -1,0 +1,238 @@
+{
+  "entries": [
+    {
+      "id": "kb-001",
+      "title": "Residential Trash Collection Schedule",
+      "content": "Residential trash collection occurs every Monday and Thursday for most neighborhoods. Downtown area collection is on Tuesday and Friday. Place your bins at the curb by 7:00 AM on your collection day. Bins should be placed at least 3 feet apart and away from parked cars, mailboxes, and other obstacles. Holiday schedules may vary - check the city website or call 311 for updates. Large item pickup is available by appointment on the first Monday of each month.",
+      "category": "schedule",
+      "service_type": "trash",
+      "department": "Public Works",
+      "updated_date": "2024-11-15T00:00:00Z"
+    },
+    {
+      "id": "kb-002",
+      "title": "Recycling Collection Schedule",
+      "content": "Recycling is collected every Wednesday throughout the city. Acceptable materials include paper, cardboard, glass bottles, aluminum cans, and plastic containers numbered 1-7. Please rinse containers before placing in the recycling bin. No plastic bags, styrofoam, or food-contaminated items. Bundle cardboard boxes flat. The recycling center at 500 Green Way is open Saturday 8 AM - 4 PM for drop-off of additional materials including electronics and hazardous waste.",
+      "category": "schedule",
+      "service_type": "recycling",
+      "department": "Public Works",
+      "updated_date": "2024-11-10T00:00:00Z"
+    },
+    {
+      "id": "kb-003",
+      "title": "Building Permit Application Process",
+      "content": "To apply for a building permit, submit Form BP-100 to the Planning Department at City Hall, Room 201, or online through the city portal. Required documents include: property survey, architectural plans (2 copies), contractor license verification, and proof of property ownership. Processing takes 2-4 weeks for standard permits. Expedited review is available for an additional fee. Permit fees are calculated based on project valuation. Inspections are required at foundation, framing, and final stages. Contact the Building Division at 555-PLAN (555-7526) for questions.",
+      "category": "permit",
+      "service_type": "building",
+      "department": "Planning",
+      "updated_date": "2024-10-01T00:00:00Z"
+    },
+    {
+      "id": "kb-004",
+      "title": "Business License Requirements",
+      "content": "All businesses operating within city limits must obtain a business license. Applications are available at City Hall or online. Required documents include: completed application form, state tax ID, zoning verification, and applicable professional licenses. Home-based businesses require a home occupation permit. License fees range from $50-$500 annually based on business type and revenue. Renewals are due by January 31 each year. Late fees apply after February 15. Contact the Business Services Division at 555-2489 for assistance.",
+      "category": "permit",
+      "service_type": "business",
+      "department": "Finance",
+      "updated_date": "2024-09-15T00:00:00Z"
+    },
+    {
+      "id": "kb-005",
+      "title": "Emergency Services - 911",
+      "content": "For life-threatening emergencies, always dial 911. This includes medical emergencies, fires, crimes in progress, and accidents with injuries. When calling 911, stay calm, provide your location, describe the emergency, and follow dispatcher instructions. Do not hang up until told to do so. For non-emergency police matters, call the Police Department at 555-0100. For fire department non-emergencies, call 555-0200. The city's emergency management center operates 24/7 and coordinates responses to major incidents and natural disasters.",
+      "category": "emergency",
+      "service_type": "emergency",
+      "department": "Emergency Services",
+      "updated_date": "2024-01-01T00:00:00Z"
+    },
+    {
+      "id": "kb-006",
+      "title": "311 City Services Hotline",
+      "content": "Call 311 for non-emergency city services and information. Available Monday-Friday, 7 AM to 7 PM, and Saturday 9 AM to 5 PM. Use 311 to report potholes, streetlight outages, graffiti, abandoned vehicles, noise complaints, and code violations. You can also request services like bulk item pickup, tree trimming, and sidewalk repairs. Track your service request online using the confirmation number provided. Average response time varies by request type: potholes within 72 hours, streetlights within 5 business days, graffiti within 48 hours.",
+      "category": "report",
+      "service_type": "311",
+      "department": "City Services",
+      "updated_date": "2024-11-01T00:00:00Z"
+    },
+    {
+      "id": "kb-007",
+      "title": "Pothole Repair Request",
+      "content": "Report potholes through 311, the city website, or the CityFix mobile app. Provide the street address or nearest intersection, lane location (center, curb, etc.), and approximate size if possible. Emergency repairs for safety hazards are completed within 24 hours. Standard repairs are scheduled within 72 hours based on severity and traffic volume. The city fills an average of 50,000 potholes annually. During winter months, temporary cold patches may be used until permanent repairs can be made in spring.",
+      "category": "report",
+      "service_type": "roads",
+      "department": "Public Works",
+      "updated_date": "2024-10-20T00:00:00Z"
+    },
+    {
+      "id": "kb-008",
+      "title": "Street Parking Regulations",
+      "content": "Street parking is regulated throughout the city. Downtown metered parking is enforced Monday-Saturday, 8 AM to 6 PM. Meters accept coins, credit cards, and the ParkMobile app. Maximum time varies by zone (1-4 hours). Residential permit parking zones require a valid permit displayed on the dashboard. Permits cost $35 annually for residents. Street cleaning parking restrictions are posted on signs - typically one day per week. Parking violations range from $35-$100 depending on the offense. Contest tickets within 21 days online or in person.",
+      "category": "schedule",
+      "service_type": "parking",
+      "department": "Transportation",
+      "updated_date": "2024-08-15T00:00:00Z"
+    },
+    {
+      "id": "kb-009",
+      "title": "Community Recreation Programs",
+      "content": "The Parks and Recreation Department offers programs for all ages at 12 community centers citywide. Youth programs include after-school activities, summer camps, sports leagues, and swim lessons. Adult programs feature fitness classes, art workshops, and senior activities. Registration opens quarterly - sign up online or in person. Fees vary by program; financial assistance is available for qualifying families. Pool facilities are open Memorial Day through Labor Day, daily 10 AM to 8 PM. Annual community center memberships provide access to all facilities.",
+      "category": "event",
+      "service_type": "recreation",
+      "department": "Parks and Recreation",
+      "updated_date": "2024-11-05T00:00:00Z"
+    },
+    {
+      "id": "kb-010",
+      "title": "Public Library Services",
+      "content": "The city public library system includes the Main Library downtown and 8 branch locations. Library cards are free for all city residents. Hours vary by location - check the website for specific branch hours. Services include book borrowing (21-day checkout), digital resources, computer access, meeting room reservations, and children's story time programs. The Main Library offers free WiFi, study rooms, and a makerspace with 3D printing. Interlibrary loans are available for materials not in our collection. Overdue fines have been eliminated.",
+      "category": "general",
+      "service_type": "library",
+      "department": "Library",
+      "updated_date": "2024-09-01T00:00:00Z"
+    },
+    {
+      "id": "kb-011",
+      "title": "Water and Sewer Services",
+      "content": "Water and sewer services are provided by the Municipal Utilities Department. Bills are issued monthly and due 21 days from the billing date. Payment options include online, auto-pay, mail, or in person at City Hall. Report water main breaks, sewer backups, or service issues to the 24-hour emergency line: 555-WATER (555-9283). Water quality reports are published annually and available online. Conservation programs offer rebates for low-flow fixtures and drought-resistant landscaping. Typical residential water rates are $3.50 per 1,000 gallons.",
+      "category": "general",
+      "service_type": "utilities",
+      "department": "Municipal Utilities",
+      "updated_date": "2024-10-10T00:00:00Z"
+    },
+    {
+      "id": "kb-012",
+      "title": "City Council Meetings",
+      "content": "City Council meets the first and third Tuesday of each month at 7 PM in Council Chambers, City Hall. Meetings are open to the public and broadcast live on the city's cable channel and YouTube. Agendas are posted online 72 hours in advance. Public comment periods are held at each meeting - sign up in person before the meeting or submit written comments by noon on the meeting day. Special meetings and work sessions are announced on the city calendar. Meeting minutes and recordings are archived on the city website.",
+      "category": "event",
+      "service_type": "government",
+      "department": "City Council",
+      "updated_date": "2024-11-12T00:00:00Z"
+    },
+    {
+      "id": "kb-013",
+      "title": "Dog Park Locations and Rules",
+      "content": "The city operates 4 off-leash dog parks: Central Park (5 acres), Riverside Dog Run (2 acres), Hilltop Dog Park (3 acres), and Eastside Bark Park (1.5 acres). Hours are dawn to dusk daily. All dogs must be licensed, vaccinated, and wear current tags. Owners must clean up after their pets - bags are provided at park entrances. Aggressive dogs must be removed immediately. Children under 12 must be accompanied by an adult. Small dog areas are available at Central Park and Hilltop. Dogs must be leashed in all other park areas.",
+      "category": "general",
+      "service_type": "parks",
+      "department": "Parks and Recreation",
+      "updated_date": "2024-07-01T00:00:00Z"
+    },
+    {
+      "id": "kb-014",
+      "title": "Snow Emergency Parking",
+      "content": "During declared snow emergencies, parking is prohibited on designated snow emergency routes to allow plowing. Routes are marked with signs throughout the city. When a snow emergency is declared, vehicles must be moved within 4 hours. Declarations are announced via emergency alert system, social media, and local news. Vehicles not moved will be ticketed ($100) and towed at owner's expense. Check the city website or call 311 for current emergency status. Residential plowing begins after main roads are cleared, typically within 24 hours of snowfall ending.",
+      "category": "emergency",
+      "service_type": "snow",
+      "department": "Public Works",
+      "updated_date": "2024-11-01T00:00:00Z"
+    },
+    {
+      "id": "kb-015",
+      "title": "Noise Ordinance Regulations",
+      "content": "The city noise ordinance restricts loud activities during quiet hours: 10 PM to 7 AM on weekdays, 11 PM to 9 AM on weekends. Construction is permitted Monday-Friday 7 AM to 7 PM, Saturday 9 AM to 5 PM, and prohibited on Sundays and holidays. Residential noise should not exceed 55 decibels during day and 45 decibels at night. Commercial areas have higher limits. Report ongoing noise violations to 311 or the non-emergency police line. One-time event permits are available for block parties and special events.",
+      "category": "report",
+      "service_type": "code_enforcement",
+      "department": "Code Enforcement",
+      "updated_date": "2024-06-15T00:00:00Z"
+    },
+    {
+      "id": "kb-016",
+      "title": "Property Tax Information",
+      "content": "Property tax bills are mailed in January with payments due March 31 (first half) and September 30 (second half). The current mill rate is 12.5 mills. Tax exemptions are available for seniors (65+), veterans, and disabled residents - apply by December 1 for the following year. Payment plans are available for amounts over $1,000. Appeal assessments within 45 days of receiving your valuation notice. The Tax Assessor's office is open Monday-Friday 8:30 AM to 4:30 PM. Online property records and tax history are available through the city's GIS portal.",
+      "category": "general",
+      "service_type": "taxes",
+      "department": "Finance",
+      "updated_date": "2024-01-15T00:00:00Z"
+    },
+    {
+      "id": "kb-017",
+      "title": "Sidewalk Repair Program",
+      "content": "Property owners are responsible for sidewalk maintenance adjacent to their property. The city offers a cost-share program covering 50% of repair costs for qualifying homeowners. Submit a request through 311 for an inspection. Priority is given to areas with trip hazards over 1 inch and high pedestrian traffic zones. The city directly repairs sidewalks at intersections and near city facilities. Annual sidewalk inspection programs focus on different neighborhoods each year. Emergency repairs for dangerous conditions are handled within 48 hours.",
+      "category": "report",
+      "service_type": "sidewalks",
+      "department": "Public Works",
+      "updated_date": "2024-05-20T00:00:00Z"
+    },
+    {
+      "id": "kb-018",
+      "title": "Farmers Market Schedule",
+      "content": "The Downtown Farmers Market operates every Saturday from May through October, 8 AM to 1 PM in Central Square. Over 50 local vendors offer fresh produce, baked goods, artisan foods, plants, and crafts. Live music performs 10 AM to noon. EBT/SNAP benefits are accepted at the market information booth with a dollar-for-dollar match up to $20. Parking is free in the municipal garage on market days. The Winter Market runs November through April at the Community Center, first and third Saturdays, 9 AM to noon.",
+      "category": "event",
+      "service_type": "market",
+      "department": "Economic Development",
+      "updated_date": "2024-04-15T00:00:00Z"
+    },
+    {
+      "id": "kb-019",
+      "title": "Street Light Outage Reporting",
+      "content": "Report streetlight outages through 311, the city website, or by noting the pole number (on a metal tag on the pole) and location. The city maintains over 15,000 streetlights and prioritizes repairs based on location and safety concerns. Standard repairs are completed within 5 business days. Outages affecting multiple lights may indicate a larger electrical issue and are prioritized. LED conversion is underway citywide, improving efficiency and reducing outages. New streetlight requests for dark areas can be submitted to the Transportation Department for evaluation.",
+      "category": "report",
+      "service_type": "streetlights",
+      "department": "Public Works",
+      "updated_date": "2024-09-30T00:00:00Z"
+    },
+    {
+      "id": "kb-020",
+      "title": "Voter Registration Information",
+      "content": "Register to vote online, by mail, or in person at the City Clerk's office. Deadline is 21 days before any election. You must be a U.S. citizen, at least 18 years old by election day, and a city resident for at least 30 days. Update your registration when you move or change your name. Early voting begins 14 days before elections at City Hall, Monday-Saturday 9 AM to 5 PM. Absentee ballots are available by request. Polling locations are assigned by address - find yours on the city website. Election results are posted online on election night.",
+      "category": "general",
+      "service_type": "elections",
+      "department": "City Clerk",
+      "updated_date": "2024-10-01T00:00:00Z"
+    },
+    {
+      "id": "kb-021",
+      "title": "Tree Trimming and Removal",
+      "content": "The city maintains trees in public rights-of-way on a 5-year trimming cycle. Request priority trimming for safety hazards (blocking signs, touching power lines, dead branches) through 311. Private property trees are the owner's responsibility but may require permits for removal of trees over 6 inches in diameter. The city offers free mulch from tree trimming operations at the Public Works yard. Plant a Tree program provides free trees to residents for front yard planting - apply in spring. Emergency tree removal during storms is coordinated through the Emergency Management Center.",
+      "category": "schedule",
+      "service_type": "trees",
+      "department": "Public Works",
+      "updated_date": "2024-03-15T00:00:00Z"
+    },
+    {
+      "id": "kb-022",
+      "title": "Food Truck and Mobile Vendor Permits",
+      "content": "Food trucks and mobile vendors need a Mobile Food Vendor License from the Health Department and a business license from Finance. Applications require health inspection, vehicle inspection, proof of insurance, and fire safety certification. Designated vending zones are marked throughout downtown and at city parks. Daily parking fees apply in addition to annual license fees. Special event permits allow vendors at festivals and private events. The monthly Food Truck Friday event at Riverfront Park features 15+ vendors from 5-9 PM. Apply online or at the Business Services office.",
+      "category": "permit",
+      "service_type": "food",
+      "department": "Health",
+      "updated_date": "2024-04-01T00:00:00Z"
+    },
+    {
+      "id": "kb-023",
+      "title": "Graffiti Removal Program",
+      "content": "Report graffiti through 311, the city website, or the CityFix app. The city removes graffiti from public property within 48 hours of reporting. Private property owners are responsible for removal but can request a free graffiti removal kit. The Anti-Graffiti Task Force works with neighborhoods on prevention through murals and community art projects. Report graffiti vandalism in progress to police at 555-0100. The city maintains a database of graffiti incidents to assist police investigations. Rewards up to $1,000 are offered for information leading to arrests.",
+      "category": "report",
+      "service_type": "graffiti",
+      "department": "Public Works",
+      "updated_date": "2024-08-01T00:00:00Z"
+    },
+    {
+      "id": "kb-024",
+      "title": "Youth Summer Employment Program",
+      "content": "The city's Summer Youth Employment Program provides jobs for residents ages 14-21. Positions include park maintenance, recreation assistants, library aides, and office support. Applications open March 1 and close April 15. Participants work 20-25 hours per week for 8 weeks starting mid-June. Pay is minimum wage. Work permits are provided for participants under 18. The program includes job readiness training, financial literacy workshops, and career exploration. Priority is given to first-time applicants and those from low-income households. Contact Youth Services at 555-TEEN for information.",
+      "category": "event",
+      "service_type": "employment",
+      "department": "Human Resources",
+      "updated_date": "2024-02-15T00:00:00Z"
+    },
+    {
+      "id": "kb-025",
+      "title": "Abandoned Vehicle Reporting",
+      "content": "Report abandoned vehicles through 311 with the vehicle description, license plate if visible, and exact location. A vehicle is considered abandoned if it's inoperable, has expired registration over 6 months, or hasn't moved in 72 hours on public property. Officers investigate within 3 business days and tag the vehicle with a 48-hour removal notice. If not moved, vehicles are towed and stored. Owners have 30 days to claim vehicles before they're sold at auction. Private parking lots should contact a private towing company. Storage fees accrue daily after 3 days.",
+      "category": "report",
+      "service_type": "vehicles",
+      "department": "Police",
+      "updated_date": "2024-07-20T00:00:00Z"
+    },
+    {
+      "id": "kb-026",
+      "title": "Senior Services and Programs",
+      "content": "The Senior Center at 200 Oak Street offers programs Monday-Friday, 9 AM to 4 PM for residents 60 and older. Services include congregate meals (lunch at noon, $3 suggested donation), transportation assistance, health screenings, exercise classes, and social activities. The Meals on Wheels program delivers hot meals to homebound seniors. Property tax relief, utility assistance, and other benefit programs are available - schedule an appointment with a benefits counselor. Senior transit passes provide unlimited bus rides for $20/month. Call 555-SENIOR for information.",
+      "category": "general",
+      "service_type": "seniors",
+      "department": "Human Services",
+      "updated_date": "2024-10-15T00:00:00Z"
+    }
+  ]
+}

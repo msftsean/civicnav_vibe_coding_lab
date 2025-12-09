@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CivicNav - City Services Q&A</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+            color: #fff;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 8px;
+            background: linear-gradient(90deg, #00d9ff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            color: #8892b0;
+            font-size: 0.95rem;
+        }
+
+        .chat-container {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            min-height: 400px;
+            max-height: 60vh;
+            overflow: hidden;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding-right: 10px;
+            margin-bottom: 20px;
+        }
+
+        .message {
+            margin-bottom: 16px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .message.user {
+            text-align: right;
+        }
+
+        .message-content {
+            display: inline-block;
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 16px;
+            line-height: 1.5;
+        }
+
+        .message.user .message-content {
+            background: linear-gradient(135deg, #00d9ff, #0099cc);
+            color: #fff;
+            border-bottom-right-radius: 4px;
+        }
+
+        .message.system .message-content {
+            background: rgba(255, 255, 255, 0.1);
+            color: #e6f1ff;
+            border-bottom-left-radius: 4px;
+        }
+
+        .citations {
+            margin-top: 12px;
+            padding: 12px;
+            background: rgba(0, 217, 255, 0.1);
+            border-radius: 8px;
+            font-size: 0.85rem;
+        }
+
+        .citations h4 {
+            color: #00d9ff;
+            margin-bottom: 8px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .citation {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .citation:last-child {
+            border-bottom: none;
+        }
+
+        .citation-title {
+            color: #00ff88;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .citation-snippet {
+            color: #8892b0;
+            font-size: 0.8rem;
+        }
+
+        .input-container {
+            display: flex;
+            gap: 12px;
+        }
+
+        .input-container input {
+            flex: 1;
+            padding: 14px 18px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            font-size: 1rem;
+            transition: border-color 0.3s, background 0.3s;
+        }
+
+        .input-container input:focus {
+            outline: none;
+            border-color: #00d9ff;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .input-container input::placeholder {
+            color: #5a6a8a;
+        }
+
+        .input-container button {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #00d9ff, #00ff88);
+            color: #1a1a2e;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .input-container button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 217, 255, 0.4);
+        }
+
+        .input-container button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .loading {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #8892b0;
+        }
+
+        .loading-dots {
+            display: flex;
+            gap: 4px;
+        }
+
+        .loading-dots span {
+            width: 8px;
+            height: 8px;
+            background: #00d9ff;
+            border-radius: 50%;
+            animation: bounce 1.4s infinite ease-in-out;
+        }
+
+        .loading-dots span:nth-child(1) { animation-delay: -0.32s; }
+        .loading-dots span:nth-child(2) { animation-delay: -0.16s; }
+
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+
+        .meta {
+            font-size: 0.75rem;
+            color: #5a6a8a;
+            margin-top: 8px;
+        }
+
+        .intent-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            background: rgba(0, 255, 136, 0.2);
+            color: #00ff88;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            margin-right: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #5a6a8a;
+            font-size: 0.8rem;
+        }
+
+        footer a {
+            color: #00d9ff;
+            text-decoration: none;
+        }
+
+        /* Scrollbar styling */
+        .chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .chat-messages::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 3px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: rgba(0, 217, 255, 0.3);
+            border-radius: 3px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 217, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CivicNav</h1>
+            <p>Your AI-powered guide to city services</p>
+        </header>
+
+        <div class="chat-container">
+            <div class="chat-messages" id="chatMessages">
+                <div class="message system">
+                    <div class="message-content">
+                        Welcome to CivicNav! I can help you find information about city services like trash collection, permits, parks, and more. What would you like to know?
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-container">
+                <input
+                    type="text"
+                    id="queryInput"
+                    placeholder="Ask about city services..."
+                    autocomplete="off"
+                />
+                <button id="sendButton" onclick="submitQuery()">Send</button>
+            </div>
+        </div>
+
+        <footer>
+            <p>Powered by Azure AI | <a href="/health">API Health</a></p>
+        </footer>
+    </div>
+
+    <script>
+        const chatMessages = document.getElementById('chatMessages');
+        const queryInput = document.getElementById('queryInput');
+        const sendButton = document.getElementById('sendButton');
+
+        // Submit on Enter key
+        queryInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                submitQuery();
+            }
+        });
+
+        async function submitQuery() {
+            const query = queryInput.value.trim();
+            if (!query) return;
+
+            // Add user message
+            addMessage(query, 'user');
+            queryInput.value = '';
+
+            // Show loading
+            const loadingId = showLoading();
+
+            // Disable input while processing
+            setInputEnabled(false);
+
+            try {
+                const response = await fetch('/api/query', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ query }),
+                });
+
+                const data = await response.json();
+
+                // Remove loading
+                removeLoading(loadingId);
+
+                if (response.ok) {
+                    addSystemMessage(data);
+                } else {
+                    addMessage(
+                        `Sorry, there was an error: ${data.message || 'Unknown error'}`,
+                        'system'
+                    );
+                }
+            } catch (error) {
+                removeLoading(loadingId);
+                addMessage(
+                    'Sorry, I couldn\'t connect to the service. Please try again.',
+                    'system'
+                );
+                console.error('Query error:', error);
+            }
+
+            setInputEnabled(true);
+            queryInput.focus();
+        }
+
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+            messageDiv.innerHTML = `<div class="message-content">${escapeHtml(text)}</div>`;
+            chatMessages.appendChild(messageDiv);
+            scrollToBottom();
+        }
+
+        function addSystemMessage(data) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message system';
+
+            let citationsHtml = '';
+            if (data.citations && data.citations.length > 0) {
+                citationsHtml = `
+                    <div class="citations">
+                        <h4>Sources</h4>
+                        ${data.citations.map(c => `
+                            <div class="citation">
+                                <div class="citation-title">${escapeHtml(c.title)}</div>
+                                <div class="citation-snippet">${escapeHtml(c.snippet)}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            }
+
+            const intentBadge = data.intent
+                ? `<span class="intent-badge">${data.intent.category}</span>`
+                : '';
+
+            const latency = data.latency_ms
+                ? `<span>${Math.round(data.latency_ms)}ms</span>`
+                : '';
+
+            messageDiv.innerHTML = `
+                <div class="message-content">
+                    ${escapeHtml(data.answer)}
+                    ${citationsHtml}
+                    <div class="meta">
+                        ${intentBadge}
+                        ${latency}
+                    </div>
+                </div>
+            `;
+
+            chatMessages.appendChild(messageDiv);
+            scrollToBottom();
+        }
+
+        function showLoading() {
+            const id = 'loading-' + Date.now();
+            const loadingDiv = document.createElement('div');
+            loadingDiv.id = id;
+            loadingDiv.className = 'message system';
+            loadingDiv.innerHTML = `
+                <div class="message-content loading">
+                    <div class="loading-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <span>Thinking...</span>
+                </div>
+            `;
+            chatMessages.appendChild(loadingDiv);
+            scrollToBottom();
+            return id;
+        }
+
+        function removeLoading(id) {
+            const loadingDiv = document.getElementById(id);
+            if (loadingDiv) {
+                loadingDiv.remove();
+            }
+        }
+
+        function setInputEnabled(enabled) {
+            queryInput.disabled = !enabled;
+            sendButton.disabled = !enabled;
+        }
+
+        function scrollToBottom() {
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "CivicNav: Run Server",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": ["app.main:app", "--reload", "--port", "8000"],
+      "jinja": true,
+      "env": {
+        "AZURE_OPENAI_ENDPOINT": "${env:AZURE_OPENAI_ENDPOINT}",
+        "AZURE_SEARCH_ENDPOINT": "${env:AZURE_SEARCH_ENDPOINT}",
+        "AZURE_SEARCH_INDEX": "civicnav-index"
+      }
+    },
+    {
+      "name": "CivicNav: Debug Tests",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "pytest",
+      "args": ["-v", "tests/"],
+      "jinja": true
+    },
+    {
+      "name": "CivicNav: Setup Index",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/data/indexer/setup_index.py",
+      "jinja": true,
+      "env": {
+        "AZURE_SEARCH_ENDPOINT": "${env:AZURE_SEARCH_ENDPOINT}",
+        "AZURE_SEARCH_INDEX": "civicnav-index"
+      }
+    }
+  ]
+}

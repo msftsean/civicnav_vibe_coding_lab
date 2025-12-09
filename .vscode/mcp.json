@@ -1,0 +1,20 @@
+{
+  "servers": {
+    "Azure": {
+      "command": "npx",
+      "args": ["-y", "@azure/mcp@latest", "server", "start"],
+      "description": "Azure MCP Server for resource management"
+    },
+    "CivicNav": {
+      "command": "python",
+      "args": ["-m", "app.mcp.server"],
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "AZURE_OPENAI_ENDPOINT": "${env:AZURE_OPENAI_ENDPOINT}",
+        "AZURE_SEARCH_ENDPOINT": "${env:AZURE_SEARCH_ENDPOINT}",
+        "AZURE_SEARCH_INDEX": "${env:AZURE_SEARCH_INDEX}"
+      },
+      "description": "CivicNav city services Q&A tools"
+    }
+  }
+}

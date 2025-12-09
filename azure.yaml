@@ -1,0 +1,32 @@
+# Azure Developer CLI (azd) configuration
+# Run 'azd up' to provision and deploy CivicNav
+
+name: civicnav
+metadata:
+  template: civicnav-rag-agents
+
+services:
+  api:
+    project: .
+    language: python
+    host: containerapp
+
+infra:
+  provider: bicep
+  path: infra
+  module: main
+
+hooks:
+  postprovision:
+    posix:
+      shell: sh
+      run: |
+        echo "Setting up search index..."
+        python data/indexer/setup_index.py
+        echo "Index setup complete!"
+    windows:
+      shell: pwsh
+      run: |
+        Write-Host "Setting up search index..."
+        python data/indexer/setup_index.py
+        Write-Host "Index setup complete!"
