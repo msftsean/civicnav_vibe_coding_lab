@@ -1,6 +1,12 @@
+<div align="center">
+
+<img src="./static/images/isv-vibe-logo.png" alt="ISV Vibe Coding Lab" width="300">
+
 # 🏛️ CivicNav - Azure AI Engineering Lab
 
 > 🤖 A hands-on lab demonstrating agentic RAG patterns with Azure AI services.
+
+</div>
 
 ---
 
