@@ -1,50 +1,83 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# CivicNav Constitution
+
+> Governing principles for the CivicNav city services Q&A application
+
+---
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Demo-First Development
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+All features must work in demo mode without Azure resources:
+- Demo tools (`DemoOpenAITool`, `DemoSearchTool`) provide full functionality
+- Local knowledge base (`data/knowledge_base.json`) for search operations
+- Automatic fallback chain: OpenAI API -> Ollama -> Mock responses
+- No feature should require Azure deployment for basic testing
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### II. Multi-LLM Support
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+The application supports multiple LLM providers:
+- **OpenAI API**: Primary option for labs (fast, high-quality)
+- **Ollama**: Local option (free, private)
+- **Azure OpenAI**: Production deployments
+- **Mock Mode**: Instant responses without any LLM
+- Configuration via environment variables (`USE_OPENAI`, `USE_OLLAMA`)
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### III. Agentic Architecture
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+The three-agent pipeline is the core abstraction:
+- **QueryAgent**: Intent classification and entity extraction
+- **RetrieveAgent**: Hybrid search (vector + keyword + semantic)
+- **AnswerAgent**: Response synthesis with citations
+- All agents inherit from `BaseAgent` abstract class
+- Sequential orchestration with data passing between stages
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### IV. Documentation Standards
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+All documentation must include:
+- **Version History**: Semantic versioning with change dates
+- **Status Badges**: Visual indicators of current state
+- **Tables**: Structured information presentation
+- Emojis for visual clarity (as requested for lab exercises)
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### V. Lab-Ready Design
+
+The codebase serves as an educational lab:
+- 8 comprehensive exercises (00-07)
+- Step-by-step guides with validation checklists
+- Quick reference tables and visual diagrams
+- Progressive difficulty: Beginner -> Intermediate -> Advanced
+
+---
+
+## Technology Stack
+
+| Layer | Technology | Purpose |
+|-------|------------|---------|
+| API | FastAPI | REST endpoints |
+| LLM | OpenAI / Ollama / Azure OpenAI | Chat completion |
+| Search | Azure AI Search / DemoSearchTool | Hybrid retrieval |
+| Deployment | Azure Container Apps + azd | Production hosting |
+| Protocol | MCP (Model Context Protocol) | AI tool integration |
+
+---
+
+## Quality Gates
+
+| Gate | Requirement |
+|------|-------------|
+| Demo Mode | All features work without Azure |
+| Health Check | `/health` endpoint returns OK |
+| Documentation | Version history maintained |
+| Exercises | All 8 exercises have validation steps |
+
+---
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+- This constitution supersedes all other development practices
+- Amendments require documentation update and version bump
+- SPEC.md must be updated when features change
+- All PRs must verify demo mode compatibility
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2024-12-09 | **Last Amended**: 2024-12-09

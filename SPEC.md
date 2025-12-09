@@ -8,9 +8,10 @@
 
 | Metric | Status |
 |--------|--------|
-| ![Spec](https://img.shields.io/badge/spec-approved-brightgreen) | Specification |
+| ![Spec](https://img.shields.io/badge/spec-v2.0.0-brightgreen) | Specification |
 | ![Implementation](https://img.shields.io/badge/implementation-complete-brightgreen) | Development |
 | ![Testing](https://img.shields.io/badge/testing-passing-brightgreen) | Quality |
+| ![Exercises](https://img.shields.io/badge/exercises-8%20total-blue) | Lab Content |
 
 ---
 
@@ -18,7 +19,8 @@
 
 | Version | Date | Changes | Status |
 |---------|------|---------|--------|
-| 1.0.0 | 2024-12-09 | ✨ Complete specification with all user stories | ✅ Current |
+| 2.0.0 | 2024-12-09 | 🚀 Multi-LLM support: OpenAI API, Ollama, Azure OpenAI, Mock mode | ✅ Current |
+| 1.0.0 | 2024-12-09 | ✨ Complete specification with all user stories | 📦 Archived |
 | 0.5.0 | 2024-12-07 | 🚧 Draft with core requirements | 📦 Archived |
 
 ---
@@ -84,7 +86,33 @@ The system uses a three-stage agent pipeline:
 
 ---
 
-### ☁️ Azure Services
+### 🧠 LLM Provider Options
+
+The application supports multiple LLM backends with automatic fallback:
+
+| Provider | Use Case | Configuration | Status |
+|----------|----------|---------------|--------|
+| 🚀 **OpenAI API** | Fast, high-quality (recommended for labs) | `USE_OPENAI=true`, `OPENAI_API_KEY` | ✅ Implemented |
+| 🦙 **Ollama** | Local, private, free | `USE_OLLAMA=true`, `OLLAMA_MODEL` | ✅ Implemented |
+| ☁️ **Azure OpenAI** | Production deployments | Azure credentials | ✅ Implemented |
+| 🎭 **Mock Mode** | No LLM, instant demo responses | Both flags `false` | ✅ Implemented |
+
+**Fallback Chain:** OpenAI API → Ollama → Mock Mode
+
+---
+
+### 🔧 Demo Mode Tools
+
+Demo mode provides full functionality without Azure resources:
+
+| Tool | Class | Description | Status |
+|------|-------|-------------|--------|
+| 🧠 **DemoOpenAITool** | `app.tools.openai_tool` | Chat completion via OpenAI API or Ollama | ✅ Implemented |
+| 🔍 **DemoSearchTool** | `app.tools.search_tool` | Local JSON knowledge base search | ✅ Implemented |
+
+---
+
+### ☁️ Azure Services (Production)
 
 | Service | Purpose | Model/Tier |
 |---------|---------|------------|
@@ -161,8 +189,72 @@ The application exposes tools via Model Context Protocol:
 
 ---
 
+## 🔧 Configuration
+
+### Environment Variables
+
+| Variable | Description | Default | Required |
+|----------|-------------|---------|----------|
+| `USE_OPENAI` | Enable OpenAI API | `true` | No |
+| `OPENAI_API_KEY` | OpenAI API key | - | If `USE_OPENAI=true` |
+| `USE_OLLAMA` | Enable Ollama fallback | `false` | No |
+| `OLLAMA_MODEL` | Ollama model name | `phi3:mini` | If `USE_OLLAMA=true` |
+| `OLLAMA_ENDPOINT` | Ollama API URL | `http://localhost:11434` | No |
+| `DEMO_MODE` | Force demo mode | `false` | No |
+
+### Configuration Modes
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    🔧 Configuration Options                      │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  Option 1: OpenAI API (Recommended for Labs)                    │
+│  ┌────────────────────────────────────────────────────────────┐ │
+│  │ USE_OPENAI=true                                            │ │
+│  │ OPENAI_API_KEY=sk-your-key-here                           │ │
+│  │ USE_OLLAMA=false                                           │ │
+│  └────────────────────────────────────────────────────────────┘ │
+│                                                                  │
+│  Option 2: Local Ollama (Free, Private)                         │
+│  ┌────────────────────────────────────────────────────────────┐ │
+│  │ USE_OPENAI=false                                           │ │
+│  │ USE_OLLAMA=true                                            │ │
+│  │ OLLAMA_MODEL=phi3:mini                                     │ │
+│  └────────────────────────────────────────────────────────────┘ │
+│                                                                  │
+│  Option 3: Mock Mode Only (No LLM)                              │
+│  ┌────────────────────────────────────────────────────────────┐ │
+│  │ USE_OPENAI=false                                           │ │
+│  │ USE_OLLAMA=false                                           │ │
+│  └────────────────────────────────────────────────────────────┘ │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 📚 Lab Exercises
+
+Complete, step-by-step guides are available in the [docs/exercises](./docs/exercises/) folder:
+
+| # | Exercise | Description | Duration |
+|---|----------|-------------|----------|
+| 0 | 🛠️ Environment Setup | Python, VS Code, dependencies | 20 min |
+| 1 | 🧠 Understanding AI Agents & RAG | Core concepts | 25 min |
+| 2 | 🔌 Azure MCP Server Setup | Configure Agent Mode | 20 min |
+| 3 | 📝 Spec-Driven Development | Generate code with specs | 20 min |
+| 4 | 🔍 Build RAG Pipeline | Search tool and RetrieveAgent | 45 min |
+| 5 | 🔗 Agent Orchestration | Multi-agent coordination | 40 min |
+| 6 | 🚀 Deploy with azd | Azure Container Apps | 35 min |
+| 7 | 🔧 Expose as MCP Server | Create MCP tools | 45 min |
+
+**Total Duration:** ~4 hours
+
+---
+
 <div align="center">
 
-**📋 Specification v1.0.0**
+**📋 Specification v2.0.0**
 
 </div>
